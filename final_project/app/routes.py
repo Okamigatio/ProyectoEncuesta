@@ -122,3 +122,13 @@ def listar_usuarios():
     usuarios = User.query.join(User.role).all()
 
     return render_template('usuarios.html', usuarios=usuarios)
+
+from flask import flash
+
+@main.route('/preguntas', methods=['GET', 'POST'])
+def preguntas():
+    if request.method == 'POST':
+        flash('¡Nos veremos otro día!')
+        return render_template('preguntas.html', enviado=True)
+    return render_template('preguntas.html', enviado=False)
+

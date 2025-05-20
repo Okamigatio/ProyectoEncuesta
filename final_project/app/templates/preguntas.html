@@ -1,0 +1,35 @@
+<!-- templates/preguntas.html -->
+{% extends "layout.html" %}
+{% block title %}Preguntas{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Responde las siguientes preguntas</h2>
+    {% if enviado %}
+        <div class="alert alert-success mt-4" style="background-color: #145A32; color: white; border: none;">
+            Adios, Persona maravillosa
+        </div>
+    {% else %}
+    <form method="post">
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Tu nombre:</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" required>
+        </div>
+        <div class="mb-3">
+            <label for="dia" class="form-label">Tu día favorito durante la Universidad:</label>
+            <input type="text" class="form-control" id="dia" name="dia" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">¿Disfrutaste del semestre?</label>
+            <select class="form-select" name="disfruto" required>
+                <option value="">Selecciona una opción</option>
+                <option value="si">Sí</option>
+                <option value="no">No</option>
+            </select>
+        </div>
+        <button type="submit" class="btn" style="background-color: #145A32; color: white;">
+            Enviar respuestas
+        </button>
+    </form>
+    {% endif %}
+</div>
+{% endblock %}
